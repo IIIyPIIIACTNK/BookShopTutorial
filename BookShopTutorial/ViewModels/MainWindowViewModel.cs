@@ -7,10 +7,10 @@ using MathCore.ViewModels;
 
 namespace BookShopTutorial.ViewModels
 {
-    internal class MainWindowViewModel : ViewModel
+    class MainWindowViewModel : ViewModel
     {
         private string _Title = "Главное окно программы";
 
-        private string Title { get => _Title; set => Set(ref _Title, value); }
+        public string Title { get => _Title; set => Set(ref _Title, value); }
     }
 }

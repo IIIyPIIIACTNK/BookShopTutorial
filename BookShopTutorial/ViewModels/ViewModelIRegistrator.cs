@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace BookShopTutorial.ViewModels
 {
-     class ViewModelLocator
+    static class ViewModelIRegistrator
     {
-        public MainWindowViewModel MainWindowModel => App.Services.GetRequiredService<MainWindowViewModel>();
+        public static IServiceCollection AddViewModels(this IServiceCollection services) => services
+            .AddSingleton<MainWindowViewModel>()
+            ;
     }
 }
