@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookShopTutorial
 {
-    class Programm
+    class Program
     {
         [STAThread]
         static void Main(string[] args)
@@ -20,6 +20,5 @@ namespace BookShopTutorial
         public static IHostBuilder CreateHostBuilder(string[] args) => Host
             .CreateDefaultBuilder(args)
             .ConfigureServices(App.ConfigurateServices);
-        
     }
 }

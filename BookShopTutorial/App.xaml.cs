@@ -1,4 +1,5 @@
-﻿using BookShopTutorial.Service;
+﻿using BookShopTutorial.Data;
+using BookShopTutorial.Service;
 using BookShopTutorial.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,9 +19,10 @@ namespace BookShopTutorial
     public partial class App : Application
     {
         private static IHost _Host;
-        public static IHost Host => _Host ??= Programm.CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
+        public static IHost Host => _Host ??= Program.CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
         public static IServiceProvider Services => Host.Services;
         internal static void ConfigurateServices(HostBuilderContext host, IServiceCollection services) => services
+            .AddDatabase(host.Configuration.GetSection("Database"))
             .AddServices()
             .AddViewModels()
             ;
